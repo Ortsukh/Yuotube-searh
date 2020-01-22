@@ -1,0 +1,101 @@
+body {
+    background-color: cadetblue;
+}
+
+
+.result {
+    margin: 0 auto;
+    width: 100%;
+
+}
+
+.resultblock {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.search {
+    margin: 0 auto;
+    width: 1000px;
+    text-align: center;
+}
+
+.block {
+    position: relative;
+    margin-top: 20px;
+    padding-left: 10px;
+    width: 330px;
+    height: 440px;
+    text-align: center;
+    background-color: white;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.block div {
+    margin-top: 20px;
+}
+
+.block img {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 90px;
+}
+
+.block div:last-child {
+    font-size: small;
+    font-style: italic;
+    text-align: left;
+}
+
+.title {
+
+    background: url(https://i.ytimg.com/vi/yLHuKesXT54/mqdefault.jpg) center no-repeat;
+    width: 320px;
+    height: 180px;
+}
+
+.title a {
+    display: block;
+    background-color: rgba(48, 180, 92, 0.8);
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 35%;
+}
+
+.nav_block {
+    display: flex;
+    justify-content: center;
+}
+
+.active {
+    border: 2px solid rgb(3, 3, 3);
+}
+
+.nav_button {
+    margin-top: 40px;
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 9px;
+    background-color: brown;
+    text-align: center;
+
+}
+
+.nav_block div:hover {
+    background-color: white;
+}
+
+.active {
+    border: 2px solid rgb(3, 3, 3);
+}
+
+.hidden {
+    display: none;
+}
