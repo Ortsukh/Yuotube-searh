@@ -2,7 +2,7 @@ const input = document.querySelector("input[type='text']");
 const navBlock = document.querySelector(".nav_block");
 const result = document.querySelector(".result");
 let searchValue = "";
-let Sdata1 = [];
+let newData = [];
 let titleName = "";
 let discriptionName = "";
 let preview = "";
@@ -11,36 +11,36 @@ let chanelName = "";
 let viewCountNumber = "";
 let datapublished = "";
 let datapublishedNew;
-const q = document.createElement("div");
-q.classList.add("firstblock");
-q.classList.add("resultblock");
-const w = document.createElement("div");
-w.classList.add("secondblock");
-w.classList.add("resultblock");
-w.classList.add("hidden");
-const e = document.createElement("div");
-e.classList.add("thirdblock");
-e.classList.add("resultblock");
-e.classList.add("hidden");
-const r = document.createElement("div");
-r.classList.add("fourthblock");
-r.classList.add("resultblock");
-r.classList.add("hidden");
+const firstblock = document.createElement("div");
+firstblock.classList.add("firstblock");
+firstblock.classList.add("resultblock");
+const secondblock = document.createElement("div");
+secondblock.classList.add("secondblock");
+secondblock.classList.add("resultblock");
+secondblock.classList.add("hidden");
+const thirdblock = document.createElement("div");
+thirdblock.classList.add("thirdblock");
+thirdblock.classList.add("resultblock");
+thirdblock.classList.add("hidden");
+const fourthblock = document.createElement("div");
+fourthblock.classList.add("fourthblock");
+fourthblock.classList.add("resultblock");
+fourthblock.classList.add("hidden");
 const searhButton = document.querySelector("button");
 searhButton.addEventListener("click", event => {
-  while (q.firstChild) {
-    q.removeChild(q.firstChild);
+  while (firstblock.firstChild) {
+    firstblock.removeChild(firstblock.firstChild);
   }
-  while (w.firstChild) {
-    w.removeChild(w.firstChild);
+  while (secondblock.firstChild) {
+    secondblock.removeChild(secondblock.firstChild);
   }
-  while (e.firstChild) {
-    e.removeChild(e.firstChild);
+  while (thirdblock.firstChild) {
+    thirdblock.removeChild(thirdblock.firstChild);
   }
-  while (r.firstChild) {
-    r.removeChild(r.firstChild);
+  while (fourthblock.firstChild) {
+    fourthblock.removeChild(fourthblock.firstChild);
   }
-  Sdata1 = [];
+  newData = [];
   searchValue = "";
   searchValue += input.value;
   console.log(searchValue);
@@ -53,21 +53,20 @@ const getInf = function() {
   )
     .then(response => response.json())
     .then(data => {
-      Sdata1.push(data.items);
-      console.log(Sdata1);
+      newData.push(data.items);
 
-      Sdata1[0].forEach(function(elem, index) {
+      newData[0].forEach(function(elem, index) {
         videoId = "";
         videoId += elem.id.videoId;
 
         if (index < 4) {
-          getInfView(elem, q);
+          getInfView(elem, firstblock);
         } else if (index < 8) {
-          getInfView(elem, w);
+          getInfView(elem, secondblock);
         } else if (index < 12) {
-          getInfView(elem, e);
+          getInfView(elem, thirdblock);
         } else {
-          getInfView(elem, r);
+          getInfView(elem, fourthblock);
         }
       });
 
@@ -102,10 +101,10 @@ const addInf = function(elem, numberblock) {
   addList(numberblock);
 };
 
-result.appendChild(q);
-result.appendChild(w);
-result.appendChild(e);
-result.appendChild(r);
+result.appendChild(firstblock);
+result.appendChild(secondblock);
+result.appendChild(thirdblock);
+result.appendChild(fourthblock);
 
 function addList(numberblock) {
   const div = document.createElement("div");
@@ -157,40 +156,40 @@ const nav = function() {
   const nav3 = document.querySelector(".control_nav3");
   const nav4 = document.querySelector(".control_nav4");
   nav1.addEventListener("click", event => {
-    q.classList.remove("hidden");
-    w.classList.add("hidden");
-    e.classList.add("hidden");
-    r.classList.add("hidden");
+    firstblock.classList.remove("hidden");
+    secondblock.classList.add("hidden");
+    thirdblock.classList.add("hidden");
+    fourthblock.classList.add("hidden");
     nav1.classList.add("active");
     nav2.classList.remove("active");
     nav3.classList.remove("active");
     nav4.classList.remove("active");
   });
   nav2.addEventListener("click", event => {
-    w.classList.remove("hidden");
-    q.classList.add("hidden");
-    e.classList.add("hidden");
-    r.classList.add("hidden");
+    secondblock.classList.remove("hidden");
+    firstblock.classList.add("hidden");
+    thirdblock.classList.add("hidden");
+    fourthblock.classList.add("hidden");
     nav2.classList.add("active");
     nav1.classList.remove("active");
     nav3.classList.remove("active");
     nav4.classList.remove("active");
   });
   nav3.addEventListener("click", event => {
-    e.classList.remove("hidden");
-    w.classList.add("hidden");
-    q.classList.add("hidden");
-    r.classList.add("hidden");
+    thirdblock.classList.remove("hidden");
+    secondblock.classList.add("hidden");
+    firstblock.classList.add("hidden");
+    fourthblock.classList.add("hidden");
     nav3.classList.add("active");
     nav2.classList.remove("active");
     nav1.classList.remove("active");
     nav4.classList.remove("active");
   });
   nav4.addEventListener("click", event => {
-    r.classList.remove("hidden");
-    w.classList.add("hidden");
-    e.classList.add("hidden");
-    q.classList.add("hidden");
+    fourthblock.classList.remove("hidden");
+    secondblock.classList.add("hidden");
+    thirdblock.classList.add("hidden");
+    firstblock.classList.add("hidden");
     nav4.classList.add("active");
     nav2.classList.remove("active");
     nav3.classList.remove("active");
